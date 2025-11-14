@@ -121,6 +121,7 @@ ol {
   align-items: center;
   gap: 5px;
   width: fit-content;
+  cursor: pointer;
 }
 
 .search-form__label-text {
@@ -140,6 +141,16 @@ ol {
   font-size: 18px;
   background-color: transparent;
   appearance: none;
+}
+
+/* Состояния для поиска */
+
+.search-form__textfield:active {
+  border-inline-start: 1px solid #fff;
+  border-inline-end: 1px solid #fff;
+}
+
+.search-form__textfield:hover {
 }
 
 .search-form__textfield:focus {
@@ -167,6 +178,8 @@ ol {
   border: 1px solid #fff;
 }
 
+/* Состояния для чекбоксов */
+
 .search-form__checkbox:checked + .search-form__pseudo-checkbox::after {
   content: "";
   width: 15px;
@@ -178,29 +191,48 @@ ol {
   text-decoration: underline;
 }
 
-/* Общие стили для кнопки*/
+.search-form__label-text:focus {
+}
+
+/* Общие стили для кнопки */
 
 .button {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 10px;
-  width: 194px;
-  height: 34px;
   border: 1px solid #fff;
   color: inherit;
   font-family: inherit;
   font-weight: 700;
   font-size: 18px;
-  line-height: normal;
   text-align: center;
   background-color: transparent;
+  cursor: pointer;
+  appearance: none;
+}
+
+/* Состояния для кнопки */
+
+.button:active {
+  background: #545050;
+}
+
+.button:hover {
+  text-decoration: underline;
+}
+
+.button:focus {
+  outline: none;
+}
+
+.button:focus-visible {
+  outline: 1px solid #fff;
+  outline-offset: 2px;
 }
 
 /* Стили для кнопки "Найти" */
 
 .search-form__submit-button {
   align-self: end;
+  width: 194px;
+  height: 34px;
 }
 
 /* Все, что слева: заголовок и карточки */

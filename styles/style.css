@@ -14,10 +14,11 @@ html {
   align-items: center;
   margin: auto;
   color: #fff;
-  font-family: 'Fira Sans Condensed', sans-serif;
+  font-family: "Fira Sans Condensed", sans-serif;
   font-size: 18px;
   background-color: #1b1919;
   block-size: 100%;
+  inline-size: 1200px;
 }
 
 h1,
@@ -49,17 +50,52 @@ ol {
 }
 
 .custom-scrollbar::-webkit-scrollbar-thumb {
-  background-color: #D9D9D9;
+  background-color: #d9d9d9;
 }
 
+/* Паттерн для скрытия лишних элементов */
+
+.visually-hidden {
+  position: absolute;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  inline-size: 1px;
+  block-size: 1px;
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+
+/* Стили идут по порядку появления каждого класса внутри кода HTML */
+
 .content {
-  display: grid;
-  grid-template-areas: 
-    "result details";
+  display: flex;
   align-items: end;
   gap: 30px;
-  margin: 0 30px;
 }
+
+/* Все, что справа: видео и строка поиска */
+
+.result {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+/* Стили видео */
+
+.result__video-container {
+  width: 711px;
+  height: 386px;
+}
+
+.result__video {
+  object-fit: cover;
+  object-position: center;
+  inline-size: 100%;
+  block-size: 100%;
+}
+
+/* Стили "формы" поиска */
 
 .search-form {
   display: flex;
@@ -67,30 +103,123 @@ ol {
   align-items: start;
 }
 
+.search-form__fieldset {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  border: none;
+}
+
+.search-form__fieldset-title {
+  font-family: Fira Sans Condensed;
+  font-weight: 400;
+  font-size: 18px;
+}
+
+.search-form__label {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  cursor: pointer;
+  inline-size: fit-content;
+}
+
+.search-form__label-text {
+}
+
+.search-form__textfield {
+  display: flex;
+  align-items: center;
+  width: 225px;
+  height: 27px;
+  border-inline-start: 1px solid transparent;
+  border-inline-end: 1px solid transparent;
+  border-block-start: 1px solid #fff;
+  border-block-end: 1px solid #fff;
+  color: rgba(255, 255, 255, 0.7);
+  font-family: Fira Sans Condensed;
+  font-weight: 400;
+  font-size: 18px;
+  background-color: transparent;
+}
+
+/* Стили для списка чекбосков*/
+
+.search-form__checkbox-list {
+  display: flex;
+  gap: 15px;
+}
+
+.search-form__pseudo-checkbox {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 19px;
+  height: 19px;
+  border: 1px solid #fff;
+}
+
+.search-form__checkbox:checked + .search-form__pseudo-checkbox::after {
+  content: "";
+  background: #fff;
+  inline-size: 15px;
+  block-size: 15px;
+}
+
+/* Общие стили для кнопки*/
+
+.button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  width: 194px;
+  height: 34px;
+  border: 1px solid #fff;
+  color: inherit;
+  font-family: inherit;
+  font-weight: 700;
+  font-size: 18px;
+  line-height: normal;
+  text-align: center;
+  background-color: transparent;
+}
+
+/* Стили для кнопки "Найти" */
+
+.search-form__submit-button {
+  align-self: end;
+}
+
+/* Все, что слева: заголовок и карточки */
+
+.content__details {
+  display: flex;
+  flex-direction: column;
+  gap: 26px;
+  inline-size: 100%;
+  block-size: 100%;
+}
+
+/* Заголовок страницы */
+
+.title {
+  font-family: Oswald;
+  font-weight: 700;
+  font-size: 75px;
+  line-height: 94%;
+  text-transform: uppercase;
+}
+
+/* Акцентный элемент */
+
+.content__accent {
+  color: #545050;
+}
+
 .content__list-container {
   overflow-y: scroll;
   block-size: 298px;
-}
-
-.content__details {
-  grid-area: details;
-  
-}
-
-.result {
-  grid-area: result;
-}
-
-.result__video-container {
-  padding-bottom: 16px;
-  width: 711px;
-  height: 386px;
-}
-
-.result__video {
-  inline-size: 100%;
-  block-size: 100%;
-  object-fit: cover;
 }
 
 .content__list {
@@ -99,9 +228,43 @@ ol {
   gap: 30px;
 }
 
+/* Стили теймплейтов */
+
+.cards-list-item-template {
+}
+
+.content__list-item {
+}
+
+.content__card-link {
+  color: #fff;
+  text-decoration: none;
+}
+
 .content__video-card {
   display: flex;
   align-items: start;
+}
+
+.content__video-card-description-container {
+  flex-grow: 1;
+}
+
+.content__video-card-title {
+  font-family: Oswald;
+  font-weight: 700;
+  font-size: 30px;
+  text-transform: uppercase;
+}
+
+.content__video-card-description {
+  display: -webkit-box;
+  overflow: hidden;
+  font-family: Fira Sans Condensed;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 16.2px;
+  -webkit-box-orient: vertical;
 }
 
 .content__video-card-thumbnail {
@@ -111,6 +274,11 @@ ol {
   object-position: start;
 }
 
-.content__video-card-description-container {
-  flex-grow: 1;
+.more-button-template {
+}
+
+/* Стили для кнопки "Показать еще" */
+
+.more-button {
+  inline-size: 100%;
 }

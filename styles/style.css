@@ -121,6 +121,7 @@ ol {
   align-items: center;
   gap: 5px;
   width: fit-content;
+  cursor: pointer;
 }
 
 .search-form__label-text {
@@ -203,6 +204,7 @@ ol {
   font-size: 18px;
   text-align: center;
   background-color: transparent;
+  cursor: pointer;
   appearance: none;
 }
 

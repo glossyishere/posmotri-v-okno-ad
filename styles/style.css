@@ -84,6 +84,7 @@ ol {
 /* Стили видео */
 
 .result__video-container {
+  position: relative;
   width: 711px;
   height: 386px;
 }
@@ -124,9 +125,6 @@ ol {
   cursor: pointer;
 }
 
-.search-form__label-text {
-}
-
 .search-form__textfield {
   display: flex;
   align-items: center;
@@ -148,9 +146,6 @@ ol {
 .search-form__textfield:active {
   border-inline-start: 1px solid #fff;
   border-inline-end: 1px solid #fff;
-}
-
-.search-form__textfield:hover {
 }
 
 .search-form__textfield:focus {
@@ -189,9 +184,6 @@ ol {
 
 .search-form__label:hover .search-form__label-text {
   text-decoration: underline;
-}
-
-.search-form__label-text:focus {
 }
 
 /* Общие стили для кнопки */
@@ -262,7 +254,8 @@ ol {
 }
 
 .content__list-container {
-  overflow-y: scroll;
+  position: relative;
+  overflow: auto;
   block-size: 298px;
 }
 
@@ -273,12 +266,6 @@ ol {
 }
 
 /* Стили теймплейтов */
-
-.cards-list-item-template {
-}
-
-.content__list-item {
-}
 
 .content__card-link {
   display: block;
@@ -305,6 +292,10 @@ ol {
   outline: 1px solid #fff;
 }
 
+.content__card-link_current {
+  background: #545050;
+}
+
 .content__video-card {
   display: flex;
   align-items: start;
@@ -316,10 +307,14 @@ ol {
 }
 
 .content__video-card-title {
+  overflow: hidden;
   font-family: Oswald;
   font-weight: 700;
   font-size: 30px;
   text-transform: uppercase;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  max-inline-size: 196px;
 }
 
 .content__video-card-description {
@@ -330,6 +325,7 @@ ol {
   font-size: 18px;
   line-height: 16.2px;
   -webkit-box-orient: vertical;
+  -webkit-line-clamp: 4;
 }
 
 .content__video-card-thumbnail {
@@ -337,9 +333,6 @@ ol {
   height: 103px;
   object-fit: cover;
   object-position: start;
-}
-
-.more-button-template {
 }
 
 /* Стили для кнопки "Показать еще" */

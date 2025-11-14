@@ -157,7 +157,7 @@ ol {
   outline-offset: 1px;
 }
 
-/* Стили для списка чекбосков*/
+/* Стили для списка чекбосков */
 
 .search-form__checkbox-list {
   display: flex;
@@ -325,7 +325,7 @@ ol {
   font-size: 18px;
   line-height: 16.2px;
   -webkit-box-orient: vertical;
-  -webkit-line-clamp: 4;
+  line-clamp: 4;
 }
 
 .content__video-card-thumbnail {
